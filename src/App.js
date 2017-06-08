@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Main from './Containers/Main';
 import './styles/App.css';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
   };
 
   handleChange = (event, logged) => {
-    this.setState({logged: logged});
+    this.setState({logged: !this.state.logged});
   };
 
   render() {
@@ -21,9 +22,9 @@ class App extends Component {
             <input type="checkbox" value="on" onChange={this.handleChange}/>
           </div>
         </div>
-        <section className="content">
+        <section className="content-area">
           {
-            this.state.logged ? <p>You are logged out.</p> : <p>You are logged in.</p>
+            this.state.logged ? <p>You must login to manage your account.</p> : <Main/>
           }
         </section>
       </div>
