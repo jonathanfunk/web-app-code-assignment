@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 
 class Account extends Component {
 
-  renderAccounts() {
+  render() {
     const subAccounts = this.props.subAccounts.accounts;
     const filter = this.props.currentAccount.id;
-    return subAccounts
-      .filter(subAccount => subAccount.parentID === filter)
-      .map(subAccount => (
-        <li>{subAccount.name}</li>
-      ));
-  }
+    const onChange = this.props.onChange;
+    const value = this.props.value;
 
-  render() {
     return (
       <section>
         <h2>Logged in as {this.props.currentAccount.name}</h2>
-        <ul>{this.renderAccounts()}</ul>
+        <select onChange={onChange} value={value}>
+          {subAccounts
+            .filter(subAccount => subAccount.parentID === filter)
+            .map(subAccount => (
+              <option value={subAccount.id} key={subAccount.id}>{subAccount.name}</option>
+          ))}
+        </select>
       </section>
     );
   }

@@ -8,7 +8,7 @@ class App extends Component {
     logged: true,
   };
 
-  handleChange = (event, logged) => {
+  handleChange = (logged) => {
     this.setState({logged: !this.state.logged});
   };
 
