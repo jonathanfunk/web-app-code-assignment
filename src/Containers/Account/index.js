@@ -16,7 +16,10 @@ class Account extends Component {
           {subAccounts
             .filter(subAccount => subAccount.parentID === filter)
             .map(subAccount => (
-              <option value={subAccount.id} key={subAccount.id}>{subAccount.name}</option>
+              <option
+                value={subAccount.id} 
+                key={subAccount.id}
+              >{subAccount.name}</option>
           ))}
         </select>
       </section>

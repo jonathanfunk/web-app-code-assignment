@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './containers/Header';
 import Main from './containers/Main';
-import { accountsData } from './data/accounts'
+import { accountsData } from './data/accounts';
 import './styles/App.css';
 
 class App extends Component {
@@ -15,21 +15,21 @@ class App extends Component {
   }
 
   handleChange(event) {
-    const account = accountsData.accounts.filter(singleAccount => singleAccount.id === event.target.value);
+    const account = accountsData.accounts.filter(
+      singleAccount => singleAccount.id === event.target.value,
+    );
     this.setState({ currentAccount: account[0] });
   }
 
   render() {
-
-    console.log(this.state.currentAccount)
     return (
       <div className="App">
-        <Header onChange={this.handleChange} accounts={accountsData.accounts}/>
+        <Header onChange={this.handleChange} accounts={accountsData.accounts} />
         <section className="content-area">
           {
-            !this.state.currentAccount ? 
-              <p>You must login to manage your account.</p> : 
-              <Main accounts={accountsData.accounts} currentAccount={this.state.currentAccount}/>
+            !this.state.currentAccount ?
+              <p>You must login to manage your account.</p> :
+              <Main accounts={accountsData.accounts} currentAccount={this.state.currentAccount} />
           }
         </section>
       </div>

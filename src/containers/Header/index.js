@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Header extends Component {
+const Header = ({ accounts, onChange }) => (
 
-  render() {
-    const accounts = this.props.accounts;
-    const onChange = this.props.onChange;
-    const value = this.props.value;
-    return (
-      <div className="App-header">
-        <h2>Welcome to React</h2>
-        <div className="login">
-          <label>Login</label>
-          <select onChange={onChange} value={value}>
-            {accounts
-              .map(account => (
-                <option value={account.id} key={account.id}>{account.name}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-    );
-  }
-}
+  <div className="App-header">
+    <h2>Web App Code Assignment</h2>
+    <div className="login">
+      <label>Login</label>
+      <select onChange={onChange}>
+        {accounts
+          .map(account => (
+            <option value={account.id} key={account.id}>{account.name}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+);
+
+Header.propTypes = {
+  accounts: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Header;
