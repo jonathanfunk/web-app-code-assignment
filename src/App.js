@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
+import Header from './containers/Header';
 import Main from './containers/Main';
+import { accountsData } from './data/accounts'
 import './styles/App.css';
 
 class App extends Component {
 
-  state = {
-    logged: true,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentAccount: null,
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  handleChange = (logged) => {
-    this.setState({logged: !this.state.logged});
-  };
+  handleChange(event) {
+    const account = accountsData.accounts.filter(singleAccount => singleAccount.id === event.target.value);
+    this.setState({ currentAccount: account[0] });
+  }
 
   render() {
+
+    console.log(this.state.currentAccount)
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-          <div className="login">
-            <label>Login</label>
-            <input type="checkbox" value="on" onChange={this.handleChange}/>
-          </div>
-        </div>
+        <Header onChange={this.handleChange} accounts={accountsData.accounts}/>
         <section className="content-area">
           {
-            this.state.logged ? <p>You must login to manage your account.</p> : <Main/>
+            !this.state.currentAccount ? 
+              <p>You must login to manage your account.</p> : 
+              <Main accounts={accountsData.accounts} currentAccount={this.state.currentAccount}/>
           }
         </section>
       </div>

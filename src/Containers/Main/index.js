@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Account from './../Account';
 import User from './../User';
 import Selected from './../Selected/';
-import { accountsData } from './../../data/accounts';
 import { usersData } from './../../data/users';
 
 class Main extends Component {
@@ -10,7 +9,6 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentAccount: accountsData.accounts[1],
       selectedAccountID: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -27,8 +25,8 @@ class Main extends Component {
         <Account
           value={this.state.selectedAccountID}
           onChange={this.handleChange}
-          currentAccount={this.state.currentAccount}
-          subAccounts={accountsData.accounts}
+          currentAccount={this.props.currentAccount}
+          subAccounts={this.props.accounts}
         />
         {this.state.selectedAccountID &&
         <User
