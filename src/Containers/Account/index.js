@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Account = ({ subAccounts, currentAccount, onChange }) => (
   <section>
     <h2>Logged in as {currentAccount.name}</h2>
-    <h3>Subaccounts:</h3>
+    <h3>Accounts:</h3>
     <select onChange={onChange}>
       {subAccounts
         .filter(subAccount => subAccount.parentID === currentAccount.id)
