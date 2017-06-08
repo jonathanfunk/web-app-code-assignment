@@ -3,6 +3,7 @@ import Account from './../Account';
 import User from './../User';
 import Selected from './../Selected/';
 import { accountsData } from './../../data/accounts';
+import { usersData } from './../../data/users';
 
 class Main extends Component {
 
@@ -21,17 +22,20 @@ class Main extends Component {
 
   render() {
 
-    console.log(this.state.selectedAccountID)
-
     return (
       <section>
         <Account
           value={this.state.selectedAccountID}
           onChange={this.handleChange}
           currentAccount={this.state.currentAccount}
-          subAccounts={accountsData}
+          subAccounts={accountsData.accounts}
         />
-        <User />
+        {this.state.selectedAccountID &&
+        <User
+          selectedAccountID={this.state.selectedAccountID}
+          users={usersData.users}
+        />
+        }
         <Selected />
       </section>
     );
