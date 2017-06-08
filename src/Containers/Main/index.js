@@ -10,7 +10,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentAccount: accountsData.accounts[0],
+      currentAccount: accountsData.accounts[1],
       selectedAccountID: '',
     };
     this.handleChange = this.handleChange.bind(this);
