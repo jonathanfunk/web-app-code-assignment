@@ -2,6 +2,7 @@ export const accountsData = {
   accounts: [{
     name: 'Reseller_Account_1',
     id: 123456,
+    parentID: 1,
   },
   {
     name: 'Reseller_1_subaccount_1',
