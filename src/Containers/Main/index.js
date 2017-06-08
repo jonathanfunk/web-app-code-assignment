@@ -23,7 +23,6 @@ class Main extends Component {
     return (
       <section>
         <Account
-          value={this.state.selectedAccountID}
           onChange={this.handleChange}
           currentAccount={this.props.currentAccount}
           subAccounts={this.props.accounts}

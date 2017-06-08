@@ -12,6 +12,7 @@ module.exports = {
       "react/prefer-stateless-function": 1,
       "jsx-a11y/anchor-has-content": 1,
       "max-len": 1,
-      "react/forbid-prop-types": 0
+      "react/forbid-prop-types": 0,
+      "react/require-default-props": 0
     }
 };
